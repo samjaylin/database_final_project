@@ -1,3 +1,5 @@
+<!-- Using ORM to deal with it by Buffett -->
+
 <?php
 // Handle registration logic here
 // Example: insert data into a database

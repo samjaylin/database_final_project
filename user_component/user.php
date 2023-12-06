@@ -14,6 +14,7 @@
             <a href="register.php" class="search-link">使用者註冊</a>
             <a href="login.php" class="search-link">使用者登入</a>
             <a href="court_search.php" class="search-link">場地搜索</a>
+            <a href="court_search_ORM.php" class="search-link">場地搜索ORM</a>
             <a href="match_search.php" class="search-link">約戰發起</a>
             <!-- <a href="review.php" class="search-link">評價系統</a> -->
         </div>
