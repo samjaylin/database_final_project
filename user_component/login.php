@@ -1,21 +1,3 @@
-<?php
-// Handle login logic here
-// Example: check credentials against a database
-
-// For demonstration, using dummy validation
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Dummy validation
-    if ($username == "testuser" && $password == "testpass") {
-        echo "Login successful!";
-    } else {
-        echo "Invalid credentials!";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,11 +5,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="post">
-        Username: <input type="text" name="username"><br>
-        Password: <input type="password" name="password"><br>
-        <input type="submit" value="Login">
-    </form>
+    <div class="container">
+        <?php
+            $host = 'localhost';
+            $port = 5432; 
+            $dbname = 'hooper';
+            $user = 'postgres'; 
+            $password = trim(file_get_contents('../db_password.txt'));
+
+            // pdo settings
+            $pdo = null; 
+            try {
+                $pdo = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                echo "Database connection failed: " . $e->getMessage();
+            }
+
+        ?>
+
+        <h1>Search for Users</h1>
+        <form action="login.php" method="post">
+            <div>
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username"><br>
+            </div>
+            <div>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password"><br>
+            </div>
+            <input type="submit" value="Login">
+        </form>
+
+        <!-- Php code here -->
+        <?php
+        if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+    
+            try {
+                $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username AND password = :password");
+                $stmt->execute(['username' => $username, 'password' => $password]);
+                
+                if ($stmt->rowCount() > 0) {
+                    echo "Login successful!";
+                    // Change to other profile
+                } else {
+                    echo "Invalid username or password.";
+                }
+            } catch (PDOException $e) {
+                echo "Error executing query: " . $e->getMessage();
+            }
+        }
+        ?>
+
+    </div>
 </body>
 </html>
