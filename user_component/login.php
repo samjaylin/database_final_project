@@ -49,7 +49,7 @@
                 
                 if ($stmt->rowCount() > 0) {
                     echo "Login successful!";
-                    // Change to other profile
+                    // Access to other profile
                 } else {
                     echo "Invalid username or password.";
                 }
