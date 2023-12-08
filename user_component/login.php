@@ -50,10 +50,10 @@
                 $stmt->execute(['username' => $username, 'password' => $password]);
                 
                 if ($stmt->rowCount() > 0) {
-                    echo "Login successful!";
+                    echo "<h3>Login successful!</h3><br>";
                     // Access to other profile
                 } else {
-                    echo "Invalid username or password.";
+                    echo "<h3>Invalid username or password!</h3><br>";
                 }
             } catch (PDOException $e) {
                 echo "Error executing query: " . $e->getMessage();
