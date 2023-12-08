@@ -5,29 +5,17 @@
 <html>
 <head>
     <title>match_search</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="user.css">
 </head>
 
 <body>
  
     <div class="container">
-        <!-- Button to go back to the previous page -->
-        <button onclick="goBack()">Previous Page</button>
+        <!-- TODO Here -->
 
-        <!-- Button to go back to the main page (index page) -->
-        <button onclick="goToMainPage()">Main Page</button>
+        <button class="button previous" onclick="history.back();">Previous Page</button>
+        <button class="button main" onclick="window.location.href='../index.php';">Main Page</button><br>
 
-        <script>
-            // Back to the previous page
-            function goBack() { 
-                window.history.back();
-            }
-
-            // Back to the main page
-            function goToMainPage() { 
-                window.location.href = "../index.php"; 
-            }
-        </script>
     </div>
 </body>
 
