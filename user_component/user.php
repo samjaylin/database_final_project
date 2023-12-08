@@ -3,7 +3,8 @@
 <html>
 <head>
     <title>User page Login or Register</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="user.css">
+    
 </head>
 
 <body>
@@ -21,21 +22,9 @@
     </div>
 
     <div class="container">
-        <!-- Button to go back to the previous page -->
-        <button onclick="goBack()">Previous Page</button>
-
-        <!-- Button to go back to the main page (index page) -->
-        <button onclick="goToMainPage()">Main Page</button>
-
-        <script>
-            function goBack() { // Back to the previous page
-                window.history.back();
-            }
-
-            function goToMainPage() { // Back to the main page
-                window.location.href = "../index.php"; 
-            }
-        </script>
+        <!-- Button to go back to the previous page and main page (index page) -->
+        <button class="button previous" onclick="history.back();">Previous Page</button>
+        <button class="button main" onclick="window.location.href='../index.php';">Main Page</button>
     </div>
 </body>
 
