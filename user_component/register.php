@@ -48,9 +48,10 @@
             Password: <input type="password" name="password" required><br>
             Birthday: <input type="date" name="birthday" required><br>
             Weight: <input type="number" name="weight" required><br>
-            Height: <input type="number" name="height" required><br><br>
+            Height: <input type="number" name="height" required><br>
             
-            User Position: <br>
+            
+            <h3>User Position: </h3>
             <input type="checkbox" name="user_position[]" value="PF"> Power Forward<br>
             <input type="checkbox" name="user_position[]" value="SF"> Small Forward<br>
             <input type="checkbox" name="user_position[]" value="C"> Center<br>
